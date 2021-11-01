@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - cd spark/3.2.0_2.12-hadoop_3.3.1_cloud
+      - docker build -t public.ecr.aws/f1n8f8j1/spark:3.2.0_2.12-hadoop_3.3.1_cloud .
+      - cd ../..
+      - cd livy/0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1
+      - docker build -t public.ecr.aws/f1n8f8j1/livy:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1 .
+      - cd ../..
+      - cd livy-spark/
+      - docker build -t public.ecr.aws/f1n8f8j1/livy-spark:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1 .
+      - cd ../../
+      - cd jupyter/4.6.3-sparkmagic_0.15.0
+      - docker build -t public.ecr.aws/f1n8f8j1/jupyter:4.6.3-sparkmagic_0.15.0 .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/spark
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/livy
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/livy-spark
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/jupyter
