@@ -2,8 +2,9 @@
 FROM public.ecr.aws/f1n8f8j1/livy-builder:0.4 as build
 
 RUN cd / && \
-    git clone https://github.com/apache/spark.git --branch v3.2.0 --single-branch && \
-    cd /spark && \
+    git clone https://github.com/apache/spark.git --branch v3.2.0 --single-branch
+
+RUN cd /spark && \
     dev/make-distribution.sh \
         --name hadoop-3.3.1-cloud-scala-2.12 --pip --tgz -DskipTests \
         -Phadoop-3.3.1 \
