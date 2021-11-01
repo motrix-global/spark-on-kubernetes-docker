@@ -2,7 +2,7 @@
 # https://github.com/jupyter-incubator/sparkmagic/blob/0.15.0/Dockerfile.jupyter
 
 
-ARG BASE_CONTAINER=jupyter/scipy-notebook:6d42503c684f
+ARG BASE_CONTAINER=public.ecr.aws/f1n8f8j1/jupyter:scipy-notebook-6d42503c684f
 
 FROM $BASE_CONTAINER
 
