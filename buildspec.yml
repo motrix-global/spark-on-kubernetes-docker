@@ -11,23 +11,24 @@ phases:
       - echo Building the Docker image...
       - cd livy-builder/0.3
       - docker build -t public.ecr.aws/f1n8f8j1/livy-builder:0.3 .
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/livy-builder
       - cd ../..
       - cd spark/3.2.0_2.12-hadoop_3.3.1_cloud
       - docker build -t public.ecr.aws/f1n8f8j1/spark:3.2.0_2.12-hadoop_3.3.1_cloud .
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/spark
       - cd ../..
       - cd livy/0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1
       - docker build -t public.ecr.aws/f1n8f8j1/livy:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1 .
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/livy
       - cd ../..
       - cd livy-spark/
       - docker build -t public.ecr.aws/f1n8f8j1/livy-spark:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1 .
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/livy-spark
       - cd ../../
       - cd jupyter/4.6.3-sparkmagic_0.15.0
       - docker build -t public.ecr.aws/f1n8f8j1/jupyter:4.6.3-sparkmagic_0.15.0 .
+      - docker push --all-tags public.ecr.aws/f1n8f8j1/jupyter
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push --all-tags public.ecr.aws/f1n8f8j1/spark
-      - docker push --all-tags public.ecr.aws/f1n8f8j1/livy
-      - docker push --all-tags public.ecr.aws/f1n8f8j1/livy-spark
-      - docker push --all-tags public.ecr.aws/f1n8f8j1/jupyter
