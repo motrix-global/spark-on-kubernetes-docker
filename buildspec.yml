@@ -22,11 +22,11 @@ phases:
       - docker push --all-tags public.ecr.aws/f1n8f8j1/livy-spark
       - cd ../..
       - cd livy/0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1
-      - docker build -t public.ecr.aws/f1n8f8j1/livy:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1 .
+      - docker build --cache-from public.ecr.aws/f1n8f8j1/livy:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1 -t public.ecr.aws/f1n8f8j1/livy:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1 .
       - docker push --all-tags public.ecr.aws/f1n8f8j1/livy
       - cd ../..
-      - cd jupyter/4.6.3-sparkmagic_0.15.0
-      - docker build -t public.ecr.aws/f1n8f8j1/jupyter:4.6.3-sparkmagic_0.15.0 .
+      - cd jupyter/4.6.3-sparkmagic_0.19.1
+      - docker build --cache-from public.ecr.aws/f1n8f8j1/jupyter:4.6.3-sparkmagic_0.19.1 -t public.ecr.aws/f1n8f8j1/jupyter:4.6.3-sparkmagic_0.19.1 .
       - docker push --all-tags public.ecr.aws/f1n8f8j1/jupyter
   post_build:
     commands:
