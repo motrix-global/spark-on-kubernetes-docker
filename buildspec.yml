@@ -9,6 +9,9 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - cd livy-builder/0.3
+      - docker build -t public.ecr.aws/f1n8f8j1/livy-builder:0.3 .
+      - cd ../..
       - cd spark/3.2.0_2.12-hadoop_3.3.1_cloud
       - docker build -t public.ecr.aws/f1n8f8j1/spark:3.2.0_2.12-hadoop_3.3.1_cloud .
       - cd ../..
