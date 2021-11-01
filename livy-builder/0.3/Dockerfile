@@ -1,4 +1,4 @@
-FROM public.ecr.aws/amazoncorretto/amazoncorretto:8-amd64
+FROM public.ecr.aws/f1n8f8j1/openjdk:8-jdk-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
