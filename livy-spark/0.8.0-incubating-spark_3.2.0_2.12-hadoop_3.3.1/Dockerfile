@@ -1,10 +1,10 @@
 ARG SPARK_BASE=public.ecr.aws/f1n8f8j1/spark:3.2.0_2.12-hadoop_3.3.1_cloud
-ARG LIVY_BUILDER=sasnouskikh/livy-builder:0.3
+ARG LIVY_BUILDER=public.ecr.aws/f1n8f8j1/livy-builder:0.4
 
 ### Livy Builder Container
 FROM $LIVY_BUILDER as build
 
-ARG LIVY_GITHUB_REPO=jahstreet/incubator-livy
+ARG LIVY_GITHUB_REPO=motrix-global/incubator-livy
 ARG LIVY_GITHUB_BRANCH=merge/first
 # ARG LIVY_GITHUB_BRANCH=v0.8.0/spark-3.0.0
 
