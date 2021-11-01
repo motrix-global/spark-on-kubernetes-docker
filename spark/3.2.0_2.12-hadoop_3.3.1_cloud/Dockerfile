@@ -6,7 +6,7 @@ RUN cd / && \
     cd /spark && \
     dev/make-distribution.sh \
         --name hadoop-3.3.1-cloud-scala-2.12 --pip --tgz -DskipTests \
-        -Phadoop-3.2 \
+        -Phadoop-3.3.1 \
         -Phadoop-cloud \
         -Pkubernetes \
         -Phive && \
