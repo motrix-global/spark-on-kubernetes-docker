@@ -1,4 +1,4 @@
-ARG SPARK_BASE=public.ecr.aws/f1n8f8j1/livy-spark:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.2.0_cloud
+ARG SPARK_BASE=public.ecr.aws/f1n8f8j1/livy-spark:0.8.0-incubating-spark_3.2.0_2.12-hadoop_3.3.1
 
 FROM $SPARK_BASE
 
