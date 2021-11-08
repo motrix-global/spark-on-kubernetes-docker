@@ -1,4 +1,4 @@
-FROM public.ecr.aws/f1n8f8j1/openjdk:8-jdk-slim
+FROM public.ecr.aws/f1n8f8j1/openjdk:11-jdk-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 

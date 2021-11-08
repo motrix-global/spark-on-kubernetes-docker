@@ -14,11 +14,11 @@ RUN cd /spark && \
     cp spark-3.2.0-bin-hadoop-3.3.1-cloud-scala-2.12.tgz /
 
 ### Final Container
-FROM public.ecr.aws/f1n8f8j1/openjdk:8-jre-slim
+FROM public.ecr.aws/f1n8f8j1/openjdk:11-jre-slim
 
 LABEL maintainer="Aliaksandr Sasnouskikh <jaahstreetlove@gmail.com>"
 
-ENV BASE_IMAGE      public.ecr.aws/f1n8f8j1/openjdk:8-jre-slim
+ENV BASE_IMAGE      public.ecr.aws/f1n8f8j1/openjdk:11-jre-slim
 
 RUN set -ex && \
     sed -i 's/http:/https:/g' /etc/apt/sources.list && \
