@@ -28,3 +28,4 @@ RUN  rm -r /usr/lib/python*/ensurepip && \
 ENV M2_HOME=/opt/maven
 ENV MAVEN_HOME=/opt/maven
 ENV PATH=${PATH}:${M2_HOME}/bin
+
